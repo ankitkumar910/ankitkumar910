@@ -12,6 +12,7 @@ Interested in data structures, algorithms, and practical software development.
 
 
 ## Projects
+- [**Todo Tracker**](https://github.com/kumarr-ankit/Todo-Tracker) 📄✒️ Manage day to day shopping list at one place and set a deadline for your important jobs.
 - [**Breed Detector**](https://github.com/kumarr-ankit/Breed_Detector) 🐮 Animal breed detection using machine learning.  
 - [**Student Management System**](https://github.com/kumarr-ankit/StudentManagementSystem) 🧑‍🎓 System for managing student data and operations.  
 - [**Portfolio Website**](https://github.com/kumarr-ankit/Portfolio) 🧑‍🦰 Personal website showcasing projects and skills.  
