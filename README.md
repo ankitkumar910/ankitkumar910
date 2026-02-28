@@ -17,5 +17,5 @@ Interested in data structures, algorithms, and practical software development.
 - [**Breed Detector**](https://github.com/ankitkumar910/Breed_Detector) 🐮 Animal breed detection using machine learning.  
 - [**Student Management System**](https://github.com/ankitkumar910/StudentManagementSystem) 🧑‍🎓 System for managing student data and operations.  
 - [**Portfolio Website**](https://github.com/ankitkumar910/Portfolio) 🧑‍🦰 Personal website showcasing projects and skills.
-- [**Portfolio Website**](https://github.com/ankitkumar910/Portfolio) 🧑‍🦰 Personal website showcasing projects and skills.  
+
 
