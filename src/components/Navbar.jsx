@@ -36,7 +36,7 @@ function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex gap-1">
+        <ul className="hidden sm:flex gap-1">
           {navLinks.map((link) => (
             <li key={link.id}>
               <a
