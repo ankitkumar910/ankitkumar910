@@ -27,7 +27,7 @@ function Skills() {
                 alt={skill.name}
                 className={`h-8 w-8 object-contain ${skill.name === "React" ? "hover:animate-spin" : "hover:scale-110"} transition-transform`}
               />
-              <span className="text-sm mt-2 text-gray-900 dark:text-gray-200 ubuntu-regular">
+              <span className="text-sm text-center mt-2 text-gray-900 dark:text-gray-200 ubuntu-regular">
                 {skill.name}
               </span>
             </li>

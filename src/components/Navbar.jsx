@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 import { navLinks, personalInfo } from "../data/portfolio";
 import { useActiveSection } from "../hooks/useActiveSection";
 import ThemeToggle from "./ThemeToggle";

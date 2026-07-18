@@ -12,7 +12,7 @@ import Introduction from "./components/Introduction";
 
 function App() {
 	return (
-		<div className="min-h-screen transition-colors duration-300">
+		<div className="min-h-screen thin  transition-colors duration-300">
 			<Navbar />
 
 			<Bottombar />

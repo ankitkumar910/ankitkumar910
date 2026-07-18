@@ -9,7 +9,7 @@ import { personalInfo } from "../data/portfolio";
 
 function Introduction() {
 	return (
-		<div className="bg-[#F8F1E4] dark:bg-[#1a1814] transition-colors duration-300">
+		<div className="bg-[#F8F1E4] dark:bg-[#1a1814] transition-colors duration-300 scrollbar-none">
 			<section
 				id="home"
 				className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between gap-8 pt-24 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
@@ -33,7 +33,7 @@ function Introduction() {
 						{personalInfo.bio}
 					</p>
 
-					<div className="flex flex-wrap gap-4 -mt-4 mb-10">
+					<div className="flex flex-wrap gap-4 mb-10">
 						<a
 							href={personalInfo.resumeUrl}
 							target="_blank"

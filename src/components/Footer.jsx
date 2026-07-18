@@ -5,7 +5,7 @@ function Footer() {
 	const year = new Date().getFullYear();
 
 	return (
-		<footer className="bg-gray-900 dark:bg-[#0f0e0c] text-gray-400 py-10 sm:py-12 px-4 sm:px-6 transition-colors duration-300">
+		<footer className="bg-gray-900 dark:bg-[#0f0e0c] text-gray-400 py-10 mb-12 sm:mb-0 sm:py-12 px-4 sm:px-6 transition-colors duration-300">
 			<div className="max-w-6xl mx-auto">
 				<div className="flex flex-col gap-8 mb-8">
 					<div className="text-center sm:text-left sm:col-span-2 lg:col-span-1">
@@ -25,28 +25,31 @@ function Footer() {
 									href={personalInfo.social.github}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="p-2.5 rounded-lg bg-gray-800 dark:bg-gray-900 hover:bg-amber-600 hover:text-white transition-colors"
+									className="p-2. text-white transition-colors"
 									aria-label="GitHub">
-									<GitHub fontSize="small" />
+									<GitHub fontSize="large" />
 								</a>
 								<a
 									href={personalInfo.social.linkedin}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="p-2.5 rounded-lg bg-gray-800 dark:bg-gray-900 hover:bg-amber-600 hover:text-white transition-colors"
+										className="p-2. text-white transition-colors"
 									aria-label="LinkedIn">
-									<LinkedIn fontSize="small" />
+									<LinkedIn fontSize="large" />
 								</a>
 								<a
 									href={`mailto:${personalInfo.email}`}
-									className="p-2.5 rounded-lg bg-gray-800 dark:bg-gray-900 hover:bg-amber-600 hover:text-white transition-colors"
+										className="p-2. text-white transition-colors"
 									aria-label="Email">
-									<Email fontSize="small" />
+									<Email fontSize="large" />
 								</a>
 							</div>
 							
 						</div>
-						<div className="text-center sm:text-left  lg:col-span-1">
+						<div className="text-center sm:text-left  lg:col-span-1
+						
+						
+						">
 							<h4 className="ubuntu-medium text-white text-sm mb-4">
 								Quick Links
 							</h4>
