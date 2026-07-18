@@ -8,13 +8,13 @@ function ThemeToggle({ className = "" }) {
   return (
     <button
       onClick={toggleTheme}
-      className={`p-2 rounded-lg border border-amber-200 dark:border-amber-800/50 text-gray-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-amber-900/30 transition-colors ${className}`}
+      className={`p-2   border-amber-200 dark:border-amber-800/50 text-gray-700 dark:text-amber-400  transition-colors cursor-pointer ${className}`}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
     >
       {theme === "dark" ? (
-        <LightModeOutlinedIcon fontSize="small" />
+        <LightModeOutlinedIcon fontSize="medium" />
       ) : (
-        <DarkModeOutlinedIcon fontSize="small" />
+        <DarkModeOutlinedIcon fontSize="medium" />
       )}
     </button>
   );

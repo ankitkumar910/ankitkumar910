@@ -55,24 +55,12 @@ function Navbar() {
 
         <div className="hidden md:flex items-center gap-3">
           <ThemeToggle />
-          <a
-            href="#contact"
-            className="ubuntu-medium text-sm bg-gray-900 dark:bg-amber-600 text-white px-5 py-2 rounded-lg hover:bg-amber-700 dark:hover:bg-amber-500 transition-colors"
-          >
-            Hire Me
-          </a>
+         
         </div>
 
         {/* Mobile controls */}
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
-          <button
-            className="p-2 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30 text-gray-900 dark:text-gray-100 transition-colors"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-          >
-            {menuOpen ? <CloseIcon /> : <MenuIcon />}
-          </button>
         </div>
       </div>
 

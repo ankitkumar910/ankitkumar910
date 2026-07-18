@@ -14,7 +14,7 @@ export const personalInfo = {
   email: "ankitkr5447@gmail.com",
   phone: "6461120273",
   location: "India",
-  resumeUrl: "#",
+  resumeUrl: "/static/resume.pdf",
   social: {
     linkedin: "https://linkedin.com/in/kumarankit1218",
     github: "https://github.com/ankitkumar910",
