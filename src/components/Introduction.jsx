@@ -4,6 +4,11 @@ import {
 	GitHub,
 	LinkedIn,
 	ArrowDownward,
+	Download,
+	DownloadDone,
+	DownloadForOffline,
+	DownloadOutlined,
+	DownloadRounded,
 } from "@mui/icons-material";
 import { personalInfo } from "../data/portfolio";
 
@@ -38,13 +43,14 @@ function Introduction() {
 							href={personalInfo.resumeUrl}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 ubuntu-medium sm:shadow-md shadow-amber-600/20" >
-							<Description fontSize="small" />
-							Download CV
+							className="inline-flex items-center gap-2  bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 ubuntu-medium sm:shadow-md shadow-amber-600/20" >
+							<Description fontSize="small"  />
+							See Resume
 						</a>
+				
 						<a
 							href="#projects"
-							className="inline-flex items-center gap-2 border-2 border-gray-900 dark:border-amber-500 text-gray-900 dark:text-amber-400 hover:bg-gray-900 dark:hover:bg-amber-600 hover:text-white dark:hover:text-white px-6 py-3 rounded-xl transition-all duration-200 ubuntu-medium">
+							className=" hidden items-center gap-2 border-2 border-gray-900 dark:border-amber-500 text-gray-900 dark:text-amber-400 hover:bg-gray-900 dark:hover:bg-amber-600 hover:text-white dark:hover:text-white px-6 py-3 rounded-xl transition-all duration-200 ubuntu-medium">
 							View Projects
 						</a>
 					</div>
