@@ -1,5 +1,5 @@
 ## About Me
-Software developer with experience in building web and Android applications.  
+Software developer with experience in building web applications.  
 Interested in data structures, algorithms, and practical software development.
 
 
