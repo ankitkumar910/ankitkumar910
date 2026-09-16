@@ -27,7 +27,7 @@ I enjoy building projects, understanding how systems work behind the scenes, and
 * [**<img width="20" height="20" style="border-radius:12px;" alt="identity-stack-logo" src="https://github.com/user-attachments/assets/81a08536-91db-4399-b469-89606dd42a06" /> Identity Stack**](https://github.com/ankitkumar910/identity-stack)
   User management REST API built with Java + Spring Boot, featuring JWT authentication, RBAC, validation, CRUD, search, pagination, sorting, automated testing, Docker, and deployment.
 
-* [**<img width="20" style="border-radius:12px"   alt="Screenshot 2026-05-03 181134" src="https://img.icons8.com/?size=100&id=111456&format=png&color=ffffff" style="border-radius: 10px;" /> Pennat**](https://pennat.vercel.app/home) Full-stack blogging platform for creating, reading, saving, and managing posts.
+* [**<img width="20" style="border-radius:12px"   alt="Screenshot 2026-05-03 181134" src="https://img.icons8.com/?size=100&id=111456&format=png&color=ffffff" style="border-radius: 10px;" /> Pennat**](https://github.com/ankitkumar910/Pennat) Full-stack blogging platform for creating, reading, saving, and managing posts.
 
 * [**🛒 EverCart**](https://github.com/kumarr-ankit/EverCart) 
   E-commerce backend built with Spring Boot, MongoDB, JWT authentication, role-based access, and Cloudinary integration.
