@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 
 function ScrollToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => setVisible(window.scrollY > 560);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -14,11 +15,13 @@ function ScrollToTop() {
 
   return (
     <button
+      type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className=" hidden sm:block fixed bottom-6 right-6 z-50 p-3 bg-amber-600 text-white rounded-full shadow-lg shadow-amber-600/30 hover:bg-amber-700 hover:scale-110 transition-all duration-200"
-      aria-label="Scroll to top"
+      className="back-to-top"
+      aria-label="Back to top"
     >
-      <KeyboardArrowUpIcon />
+      <ArrowUpwardIcon fontSize="small" aria-hidden="true" />
+      <span>Back to top</span>
     </button>
   );
 }
