@@ -26,7 +26,7 @@ export const navLinks = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
-  // { id: "projects", label: "Projects" },
+  { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
@@ -61,31 +61,31 @@ export const skillCategories = [
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce REST API",
+    title: "Identity Stack",
     description:
-      "A scalable backend API for an online store with user authentication, product catalog, cart management, and order processing built with Spring Boot.",
-    tags: ["Java", "Spring Boot", "MySQL", "REST API"],
-    github: "https://github.com/kumarankit1218",
-    live: null,
+      "A user-management REST API with JWT authentication, Spring Security, and role-based access control (USER/ADMIN). Includes CRUD, validation, pagination, search, and Swagger/OpenAPI docs. Dockerized and deployed.",
+    tags: ["Java", "Spring Boot", "Spring Security", "JWT", "MySQL", "Docker"],
+    github: "https://github.com/ankitkumar910/identity-stack",
+    live: "https://identitystack.onrender.com/docs",
     featured: true,
   },
   {
     id: 2,
-    title: "Task Manager Dashboard",
+    title: "Shortly",
     description:
-      "A responsive task management app with drag-and-drop boards, priority filters, and local storage persistence. Built with React and Tailwind CSS.",
-    tags: ["React", "Tailwind CSS", "JavaScript"],
-    github: "https://github.com/kumarankit1218",
-    live: null,
+      "A URL shortener and link management platform with Redis-backed rate limiting on the shorten endpoint. Built to learn Redis in a real, working project.",
+    tags: ["Java", "Spring Boot", "Redis", "React", "MySQL"],
+    github: "https://github.com/ankitkumar910/Shortly",
+    live: "https://shortly100.vercel.app",
     featured: true,
   },
   {
     id: 3,
-    title: "DSA Problem Tracker",
+    title: "Order Event Tracker",
     description:
-      "A personal tracker for coding interview prep — log problems by topic, difficulty, and platform with progress stats and revision reminders.",
-    tags: ["Java", "Data Structures", "Algorithms"],
-    github: "https://github.com/kumarankit1218",
+      "An event-driven order processing service exploring asynchronous communication with Kafka. Tracks order lifecycle events (placed to delivered) through independent consumer groups, with a dead-letter topic for failed messages.",
+    tags: ["Java", "Spring Boot", "Apache Kafka", "MySQL"],
+    github: "https://github.com/ankitkumar910/order-event-tracker",
     live: null,
     featured: false,
   },
@@ -95,7 +95,7 @@ export const projects = [
     description:
       "This portfolio site — a single-page React application with smooth scrolling, responsive layout, and a warm, minimal design.",
     tags: ["React", "Vite", "Tailwind CSS"],
-    github: "https://github.com/ankitkumar910",
+    github: "https://github.com/ankitkumar910/ankitkumar910",
     live: null,
     featured: false,
   },
@@ -110,27 +110,11 @@ export const experience = [
     description:
       "Focused on software engineering, data structures, algorithms, and database management systems.",
   },
-  // {
-  //   type: "work",
-  //   title: "Self-Directed Projects",
-  //   organization: "Personal",
-  //   period: "2023 — Present",
-  //   description:
-  //     "Building full-stack applications with Java Spring Boot and React. Practicing DSA daily on LeetCode and GeeksforGeeks.",
-  // },
-  // {
-  //   type: "work",
-  //   title: "Open Source Contributor",
-  //   organization: "GitHub",
-  //   period: "2024 — Present",
-  //   description:
-  //     "Contributing to open-source projects, improving documentation, and fixing bugs in Java and JavaScript repositories.",
-  // },
 ];
 
 export const stats = [
-  { label: "Projects Built", value: "10+" },
-  { label: "DSA Problems", value: "200+" },
-  { label: "Technologies", value: "8+" },
-  { label: "Git Commits", value: "500+" },
+  { label: "Projects Built", value: "4" },
+  { label: "Technologies", value: "13" },
+  { label: "Git Commits", value: "76+" },
+  { label: "GitHub Repos", value: "39+" },
 ];
