@@ -14,14 +14,12 @@ function App() {
 	return (
 		<div className="min-h-screen thin  transition-colors duration-300">
 			<Navbar />
-
 			<Bottombar />
-
 			<main>
 			   <Introduction />
 				<About />
 				<Skills />
-				{/* <Project /> */}
+				<Project />
 				<Experience />
 				<Contact />
 			</main>
