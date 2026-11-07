@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Email, LinkedIn, Phone, GitHub, Send, CheckCircle } from "@mui/icons-material";
+import { Email, LinkedIn, GitHub, Send, CheckCircle } from "@mui/icons-material";
 import { personalInfo } from "../data/portfolio";
 
 function Contact() {
@@ -28,12 +28,6 @@ function Contact() {
       label: "Email",
       value: personalInfo.email,
       href: `mailto:${personalInfo.email}`,
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: personalInfo.phone,
-      href: `tel:+91${personalInfo.phone}`,
     },
     {
       icon: LinkedIn,
