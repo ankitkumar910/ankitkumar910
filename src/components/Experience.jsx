@@ -1,63 +1,96 @@
-import { School, Work, Code } from "@mui/icons-material";
-import { experience } from "../data/portfolio";
+import { GitHub, OpenInNew, Star } from "@mui/icons-material";
+import { projects } from "../data/portfolio";
 
-const iconMap = {
-  education: School,
-  work: Work,
-};
-
-function Experience() {
+function ProjectCard({ project }) {
   return (
-    <section
-      id="experience"
-      className="py-20 px-4 sm:px-6 bg-[#F8F1E4] dark:bg-[#1a1814] transition-colors duration-300"
+    <article
+      className={`group border border-[var(--line)] bg-[var(--paper)] p-6 transition-colors duration-200 hover:border-[var(--accent)] ${
+        project.featured ? "lg:col-span-1" : ""
+      }`}
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="ubuntu-regular text-amber-600 dark:text-amber-400 text-sm tracking-widest uppercase mb-2">
-            My journey
-          </p>
-          <h2 className="stack-sans-headline-500 text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100">
-            Experience & Education
-          </h2>
+      <div className="mb-5 flex items-start justify-between gap-3">
+        <h3 className="text-xl font-medium tracking-[-0.04em] text-[var(--text)]">
+          {project.title}
+        </h3>
+        {project.featured && (
+          <Star className="text-[var(--accent)]" fontSize="small" />
+        )}
+      </div>
+
+      <p className="text-sm leading-6 text-[var(--muted)]">{project.description}</p>
+
+      <div className="mt-5 flex flex-wrap gap-2">
+        {project.tags.map((tag) => (
+          <span
+            key={tag}
+            className="border border-[var(--line)] px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.08em] text-[var(--muted)]"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+
+      <div className="mt-6 flex gap-4">
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm text-[var(--text)] hover:text-[var(--accent)]"
+          >
+            <GitHub fontSize="small" />
+            Code
+          </a>
+        )}
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm text-[var(--text)] hover:text-[var(--accent)]"
+          >
+            <OpenInNew fontSize="small" />
+            Live Demo
+          </a>
+        )}
+      </div>
+    </article>
+  );
+}
+
+function Project() {
+  const featured = projects.filter((p) => p.featured);
+  const others = projects.filter((p) => !p.featured);
+
+  return (
+    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
+        <div className="mb-12">
+          <p className="section-tag">My work</p>
+          <h2 className="section-title">Featured Projects</h2>
         </div>
 
-        <div className="relative max-w-2xl mx-auto">
-          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-amber-300 dark:bg-amber-800 hidden sm:block" />
-
-          <div className="space-y-8">
-            {experience.map((item, index) => {
-              const Icon = iconMap[item.type] || Code;
-              return (
-                <div key={index} className="relative flex gap-6 sm:pl-16">
-                  <div className="hidden sm:flex absolute left-0 w-12 h-12 bg-amber-600 rounded-full items-center justify-center text-white shadow-md shadow-amber-600/30">
-                    <Icon fontSize="small" />
-                  </div>
-
-                  <div className="bg-white dark:bg-[#242019] rounded-2xl p-6 border border-amber-100 dark:border-amber-900/40 hover:border-amber-400 dark:hover:border-amber-600 transition-colors flex-1">
-                    <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                      <h3 className="ubuntu-medium text-lg text-gray-900 dark:text-gray-100">
-                        {item.title}
-                      </h3>
-                      <span className="ubuntu-regular text-xs bg-amber-100 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 px-3 py-1 rounded-full whitespace-nowrap">
-                        {item.period}
-                      </span>
-                    </div>
-                    <p className="ubuntu-regular text-sm text-amber-700 dark:text-amber-400 mb-3">
-                      {item.organization}
-                    </p>
-                    <p className="noto-serif-oriya-400 text-sm text-gray-600 dark:text-gray-400 leading-6">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        <div className="grid gap-5 md:grid-cols-2">
+          {featured.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
         </div>
+
+        {others.length > 0 && (
+          <>
+            <h3 className="mt-14 mb-6 text-2xl font-medium tracking-[-0.04em] text-[var(--text)]">
+              Other Projects
+            </h3>
+            <div className="grid gap-5 md:grid-cols-2">
+              {others.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   );
 }
 
-export default Experience;
+export default Project;

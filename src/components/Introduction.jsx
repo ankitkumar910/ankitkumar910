@@ -1,99 +1,216 @@
-import imgUrl from "/ankit.png";
-import {
-	Description,
-	GitHub,
-	LinkedIn,
-	ArrowDownward,
-	Download,
-	DownloadDone,
-	DownloadForOffline,
-	DownloadOutlined,
-	DownloadRounded,
-} from "@mui/icons-material";
-import { personalInfo } from "../data/portfolio";
+@import "tailwindcss";
 
-function Introduction() {
-	return (
-		<div className="bg-[#F8F1E4] dark:bg-[#1a1814] transition-colors duration-300 scrollbar-none">
-			<section
-				id="home"
-				className="relative min-h-screen flex flex-col lg:flex-row items-center justify-between gap-8 pt-24 pb-16 px-4 sm:px-6 max-w-6xl mx-auto">
-				<div className="flex-1 order-2 lg:order-1">
-					<p className="ubuntu-regular text-amber-700 dark:text-amber-400 text-sm tracking-widest uppercase mb-3 animate-fade-in">
-						{personalInfo.title}
-					</p>
+@custom-variant dark (&:where(.dark, .dark *));
 
-					<h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 noto-serif-oriya-600 text-gray-900 dark:text-gray-100 leading-tight">
-						Hi, I&apos;m{" "}
-						<span className="text-amber-600 dark:text-amber-500">
-							{personalInfo.name}
-						</span>
-					</h1>
-
-					<p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-2 dm-sans-400">
-						{personalInfo.tagline}
-					</p>
-
-					<p className="text-base leading-7 text-gray-700 dark:text-gray-300 max-w-xl noto-serif-oriya-400 mb-8">
-						{personalInfo.bio}
-					</p>
-
-					<div className="flex flex-wrap gap-4 mb-10">
-						<a
-							href={personalInfo.resumeUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2  bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-xl transition-all duration-200 hover:scale-105 ubuntu-medium sm:shadow-md shadow-amber-600/20" >
-							<Description fontSize="small"  />
-							See Resume
-						</a>
-				
-						<a
-							href="#projects"
-							className=" hidden items-center gap-2 border-2 border-gray-900 dark:border-amber-500 text-gray-900 dark:text-amber-400 hover:bg-gray-900 dark:hover:bg-amber-600 hover:text-white dark:hover:text-white px-6 py-3 rounded-xl transition-all duration-200 ubuntu-medium">
-							View Projects
-						</a>
-					</div>
-
-					<div className="flex items-center gap-4">
-						<a
-							href={personalInfo.social.github}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-amber-600 dark:hover:border-amber-500 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
-							aria-label="GitHub">
-							<GitHub />
-						</a>
-						<a
-							href={personalInfo.social.linkedin}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="p-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-amber-600 dark:hover:border-amber-500 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
-							aria-label="LinkedIn">
-							<LinkedIn />
-						</a>
-					</div>
-				</div>
-
-				<div className="relative order-1 lg:order-2 shrink-0">
-					<div className="absolute inset-0 bg-amber-400/20 dark:bg-amber-600/10 rounded-3xl rotate-6 scale-95" />
-					<img
-						src={imgUrl}
-						alt={personalInfo.name}
-						className="relative h-64 sm:h-80 lg:h-[28rem] select-none object-cover rounded-3xl shadow-xl dark:shadow-amber-900/20"
-					/>
-				</div>
-
-				<a
-					href="#about"
-					className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 text-gray-500 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors animate-bounce"
-					aria-label="Scroll to about">
-					<span className="ubuntu-regular text-xs">Scroll</span>
-					<ArrowDownward fontSize="small" />
-				</a>
-			</section>
-		</div>
-	);
+:root {
+  --bg: #f5f0e8;
+  --bg-alt: #f8f4ee;
+  --paper: #fffdf9;
+  --panel: #f0e9e1;
+  --text: #171412;
+  --muted: #5f564f;
+  --line: rgba(23, 20, 18, 0.14);
+  --accent: #9d5d3a;
+  --accent-strong: #7e4730;
+  --accent-soft: #f1e1d3;
+  --shadow: 0 18px 40px -28px rgba(17, 17, 17, 0.35);
 }
 
-export default Introduction;
+.dark {
+  --bg: #11100f;
+  --bg-alt: #171512;
+  --paper: #1b1917;
+  --panel: #221f1d;
+  --text: #f3efe8;
+  --muted: #c8c0b5;
+  --line: rgba(255, 255, 255, 0.08);
+  --accent: #d28f5b;
+  --accent-strong: #efb97d;
+  --accent-soft: rgba(210, 143, 91, 0.12);
+  --shadow: 0 18px 40px -28px rgba(0, 0, 0, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+section {
+  scroll-margin-top: 96px;
+}
+
+.section-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.section-title {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  letter-spacing: -0.05em;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 0.98;
+  color: var(--text);
+}
+
+.section-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.noto-serif-oriya-400 {
+  font-family: "Noto Serif Oriya", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.noto-serif-oriya-600 {
+  font-family: "Noto Serif Oriya", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.dm-sans-400 {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ubuntu-light {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ubuntu-regular {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ubuntu-medium {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ubuntu-bold {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.stack-sans-headline-500 {
+  font-family: "Stack Sans Headline", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.soft-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.soft-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  background: var(--text);
+  color: var(--bg);
+  padding: 0.9rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border-radius: 10px;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.soft-button:hover {
+  transform: translateY(-1px);
+}
+
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  padding: 0.9rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: border-color 180ms ease, background 180ms ease;
+}
+
+.ghost-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.minimal-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: transparent;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

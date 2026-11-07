@@ -1,32 +1,23 @@
-import Navbar from "./components/Navbar";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import { useTheme } from "../context/ThemeContext";
 
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Project from "./components/Project";
-import Experience from "./components/Experience";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
-import Bottombar from "./components/Bottombar";
-import Introduction from "./components/Introduction";
+function ThemeToggle({ className = "" }) {
+  const { theme, toggleTheme } = useTheme();
 
-function App() {
-	return (
-		<div className="min-h-screen thin  transition-colors duration-300">
-			<Navbar />
-			<Bottombar />
-			<main>
-			   <Introduction />
-				<About />
-				<Skills />
-				<Project />
-				<Experience />
-				<Contact />
-			</main>
-			<Footer />
-			<ScrollToTop />
-		</div>
-	);
+  return (
+    <button
+      onClick={toggleTheme}
+      className={`inline-flex h-10 w-10 items-center justify-center border border-[var(--line)] bg-transparent text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] ${className}`}
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {theme === "dark" ? (
+        <LightModeOutlinedIcon fontSize="small" />
+      ) : (
+        <DarkModeOutlinedIcon fontSize="small" />
+      )}
+    </button>
+  );
 }
 
-export default App;
+export default ThemeToggle;
