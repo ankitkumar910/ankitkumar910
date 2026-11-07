@@ -1,87 +1,16 @@
-import { useState, useEffect } from "react";
-import { navLinks, personalInfo } from "../data/portfolio";
-import { useActiveSection } from "../hooks/useActiveSection";
-import ThemeToggle from "./ThemeToggle";
+import { personalInfo, stats } from "../data/portfolio";
 
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const activeSection = useActiveSection(navLinks.map((link) => link.id));
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 16);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const handleNavClick = () => setMenuOpen(false);
-
+function About() {
   return (
-    <nav
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-200 ${
-        scrolled
-          ? "border-b border-[var(--line)] bg-[var(--bg)]/90 backdrop-blur-sm"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="section-shell flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a
-          href="#home"
-          className="text-lg font-semibold tracking-[-0.04em] text-[var(--text)]"
-        >
-          {personalInfo.name}
-          <span className="text-[var(--accent)]">.</span>
-        </a>
-
-        <ul className="hidden items-center gap-2 sm:flex">
-          {navLinks.map((link) => (
-            <li key={link.id}>
-              <a
-                href={`#${link.id}`}
-                className={`inline-flex rounded-[10px] px-3 py-2 text-sm transition-colors ${
-                  activeSection === link.id
-                    ? "bg-[var(--text)] text-[var(--bg)]"
-                    : "text-[var(--muted)] hover:bg-[var(--panel)] hover:text-[var(--text)]"
-                }`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle />
-        </div>
-
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
+    <section id="about" className="bg-[var(--bg-alt)] py-24 px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
+        <div className="mb-12"><p className="section-tag">Get to know me</p><h2 className="section-title">About</h2></div>
+        <div className="grid items-start gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div><p className="text-lg leading-8 text-[var(--muted)]">{personalInfo.longBio}</p><p className="mt-6 text-base leading-7 text-[var(--muted)]">When I&apos;m not coding, I&apos;m solving algorithm problems, reading through backend systems, and refining how I build software with clarity, maintainability, and purpose.</p><div className="mt-8 flex flex-wrap gap-3"><span className="minimal-chip">📍 {personalInfo.location}</span><span className="minimal-chip">💼 Open to opportunities</span></div></div>
+          <div className="grid grid-cols-2 gap-4">{stats.map((stat) => <div key={stat.label} className="border border-[var(--line)] bg-[var(--paper)] px-5 py-7 text-center"><div className="text-3xl font-semibold tracking-[-0.06em] text-[var(--text)] sm:text-4xl">{stat.value}</div><div className="mt-2 text-sm text-[var(--muted)]">{stat.label}</div></div>)}</div>
         </div>
       </div>
-
-      {menuOpen && (
-        <div className="border-t border-[var(--line)] bg-[var(--bg)] px-4 pb-4 md:hidden">
-          <ul className="flex flex-col gap-2 pt-3">
-            {navLinks.map((link) => (
-              <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  onClick={handleNavClick}
-                  className={`block rounded-[10px] px-3 py-3 text-sm ${
-                    activeSection === link.id
-                      ? "bg-[var(--text)] text-[var(--bg)]"
-                      : "text-[var(--muted)] hover:bg-[var(--panel)]"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </nav>
+    </section>
   );
 }
-
-export default Navbar;
+export default About;

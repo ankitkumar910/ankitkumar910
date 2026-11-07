@@ -1,69 +1,9 @@
-import { GitHub, LinkedIn, Email } from "@mui/icons-material";
-import { personalInfo, navLinks } from "../data/portfolio";
+import { AlternateEmail, Construction, HomeFilled, Person, Work } from "@mui/icons-material";
+import { navLinks } from "../data/portfolio";
+import { useActiveSection } from "../hooks/useActiveSection";
 
-function Footer() {
-  const year = new Date().getFullYear();
-
-  return (
-    <footer className="border-t border-[var(--line)] bg-[var(--bg)] px-4 py-14 sm:px-6 lg:px-8">
-      <div className="section-shell">
-        <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <h3 className="text-xl font-medium tracking-[-0.04em] text-[var(--text)]">
-              {personalInfo.name}
-            </h3>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-[var(--muted)]">
-              {personalInfo.tagline}
-            </p>
-          </div>
-
-          <div className="flex flex-col gap-5 md:items-end">
-            <div className="flex items-center gap-3">
-              <a
-                href={personalInfo.social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="inline-flex h-10 w-10 items-center justify-center border border-[var(--line)] text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              >
-                <GitHub fontSize="small" />
-              </a>
-              <a
-                href={personalInfo.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="inline-flex h-10 w-10 items-center justify-center border border-[var(--line)] text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              >
-                <LinkedIn fontSize="small" />
-              </a>
-              <a
-                href={`mailto:${personalInfo.email}`}
-                aria-label="Email"
-                className="inline-flex h-10 w-10 items-center justify-center border border-[var(--line)] text-[var(--text)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              >
-                <Email fontSize="small" />
-              </a>
-            </div>
-
-            <ul className="flex flex-wrap gap-3 text-sm text-[var(--muted)] md:justify-end">
-              {navLinks.map((link) => (
-                <li key={link.id}>
-                  <a href={`#${link.id}`} className="hover:text-[var(--text)]">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-10 border-t border-[var(--line)] pt-6 text-center text-xs uppercase tracking-[0.12em] text-[var(--muted)]">
-          © {year} {personalInfo.name}
-        </div>
-      </div>
-    </footer>
-  );
+function Bottombar() {
+  const activeSection = useActiveSection(navLinks.map((link) => link.id));
+  return <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-[var(--line)] bg-[var(--bg)] sm:hidden"><div className="flex h-16 items-center justify-around px-3">{navLinks.map((link) => <a key={link.id} href={`#${link.id}`} className={`flex flex-col items-center gap-1 text-[0.64rem] uppercase tracking-[0.08em] ${activeSection === link.id ? "text-[var(--accent)]" : "text-[var(--muted)]"}`}>{link.label === "Home" && <HomeFilled fontSize="small" />}{link.label === "About" && <Person fontSize="small" />}{link.label === "Skills" && <Construction fontSize="small" />}{link.label === "Experience" && <Work fontSize="small" />}{link.label === "Contact" && <AlternateEmail fontSize="small" />}<span>{link.label}</span></a>)}</div></nav>;
 }
-
-export default Footer;
+export default Bottombar;
