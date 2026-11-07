@@ -2,10 +2,6 @@ import { GitHub, OpenInNew, Star } from "@mui/icons-material";
 import { projects } from "../data/portfolio";
 
 function ProjectCard({ project }) {
-
- 
-
-
   return (
     <article
       className={`group bg-white dark:bg-[#242019] rounded-2xl border border-amber-100 dark:border-amber-900/40 overflow-hidden hover:border-amber-400 dark:hover:border-amber-600 hover:shadow-lg dark:hover:shadow-amber-900/20 transition-all duration-300 hover:-translate-y-1 ${
@@ -90,13 +86,13 @@ function Project() {
           </p>
         </div>
 
-        {/* <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
           {featured.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
-        </div> */}
+        </div>
 
-        {/* {others.length > 0 && (
+        {others.length > 0 && (
           <>
             <h3 className="ubuntu-medium text-xl text-gray-900 dark:text-gray-100 mb-6 text-center">
               Other Projects
@@ -107,7 +103,7 @@ function Project() {
               ))}
             </div>
           </>
-        )} */}
+        )}
       </div>
     </section>
   );
