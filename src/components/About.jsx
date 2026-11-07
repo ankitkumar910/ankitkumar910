@@ -1,61 +1,87 @@
-import { personalInfo, stats } from "../data/portfolio";
+import { useState, useEffect } from "react";
+import { navLinks, personalInfo } from "../data/portfolio";
+import { useActiveSection } from "../hooks/useActiveSection";
+import ThemeToggle from "./ThemeToggle";
 
-function About() {
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const activeSection = useActiveSection(navLinks.map((link) => link.id));
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const handleNavClick = () => setMenuOpen(false);
+
   return (
-    <section
-      id="about"
-      className="py-20 px-4 sm:px-6 bg-white dark:bg-[#242019] transition-colors duration-300"
+    <nav
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? "border-b border-[var(--line)] bg-[var(--bg)]/90 backdrop-blur-sm"
+          : "bg-transparent"
+      }`}
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="ubuntu-regular text-amber-600 dark:text-amber-400 text-sm tracking-widest uppercase mb-2">
-            Get to know me
-          </p>
-          <h2 className="stack-sans-headline-500 text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100">
-            About Me
-          </h2>
+      <div className="section-shell flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
+        <a
+          href="#home"
+          className="text-lg font-semibold tracking-[-0.04em] text-[var(--text)]"
+        >
+          {personalInfo.name}
+          <span className="text-[var(--accent)]">.</span>
+        </a>
+
+        <ul className="hidden items-center gap-2 sm:flex">
+          {navLinks.map((link) => (
+            <li key={link.id}>
+              <a
+                href={`#${link.id}`}
+                className={`inline-flex rounded-[10px] px-3 py-2 text-sm transition-colors ${
+                  activeSection === link.id
+                    ? "bg-[var(--text)] text-[var(--bg)]"
+                    : "text-[var(--muted)] hover:bg-[var(--panel)] hover:text-[var(--text)]"
+                }`}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeToggle />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="noto-serif-oriya-400 text-gray-700 dark:text-gray-300 text-lg leading-8 mb-6">
-              {personalInfo.longBio}
-            </p>
-            <p className="noto-serif-oriya-400 text-gray-600 dark:text-gray-400 leading-7 mb-6">
-              When I&apos;m not coding, you&apos;ll find me solving algorithm
-              challenges, reading tech blogs, or exploring new frameworks. I
-              believe in writing clean, maintainable code and continuous
-              learning.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <span className="ubuntu-regular text-sm bg-[#F8F1E4] dark:bg-[#1a1814] text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full border border-amber-200 dark:border-amber-800/40">
-                📍 {personalInfo.location}
-              </span>
-              <span className="ubuntu-regular text-sm bg-[#F8F1E4] dark:bg-[#1a1814] text-gray-700 dark:text-gray-300 px-4 py-2 rounded-full border border-amber-200 dark:border-amber-800/40">
-                💼 Open to opportunities
-              </span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="bg-[#F8F1E4] dark:bg-[#1a1814] rounded-2xl p-6 text-center border border-amber-100 dark:border-amber-900/40 hover:border-amber-400 dark:hover:border-amber-600 transition-colors group"
-              >
-                <div className="stack-sans-headline-500 text-3xl sm:text-4xl font-bold text-amber-600 dark:text-amber-500 group-hover:scale-110 transition-transform">
-                  {stat.value}
-                </div>
-                <div className="ubuntu-regular text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
         </div>
       </div>
-    </section>
+
+      {menuOpen && (
+        <div className="border-t border-[var(--line)] bg-[var(--bg)] px-4 pb-4 md:hidden">
+          <ul className="flex flex-col gap-2 pt-3">
+            {navLinks.map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  onClick={handleNavClick}
+                  className={`block rounded-[10px] px-3 py-3 text-sm ${
+                    activeSection === link.id
+                      ? "bg-[var(--text)] text-[var(--bg)]"
+                      : "text-[var(--muted)] hover:bg-[var(--panel)]"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </nav>
   );
 }
 
-export default About;
+export default Navbar;

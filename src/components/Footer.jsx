@@ -1,81 +1,150 @@
-import { GitHub, LinkedIn, Email } from "@mui/icons-material";
-import { personalInfo, navLinks } from "../data/portfolio";
+import { useState } from "react";
+import { Email, LinkedIn, GitHub, Send, CheckCircle } from "@mui/icons-material";
+import { personalInfo } from "../data/portfolio";
 
-function Footer() {
-	const year = new Date().getFullYear();
+function Contact() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
 
-	return (
-		<footer className="bg-gray-900 dark:bg-[#0f0e0c] text-gray-400 py-10 mb-12 sm:mb-0 sm:py-12 px-4 sm:px-6 transition-colors duration-300">
-			<div className="max-w-6xl mx-auto">
-				<div className="flex flex-col gap-8 mb-8">
-					<div className="text-center sm:text-left sm:col-span-2 lg:col-span-1">
-						<h3 className="stack-sans-headline-500 text-white text-lg sm:text-xl mb-3">
-							{personalInfo.name}
-						</h3>
-						<p className="ubuntu-regular text-sm leading-6 max-w-xs mx-auto sm:mx-0">
-							{personalInfo.tagline}
-						</p>
-					</div>
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-					<div className="flex  justify-between flex-col  flex-wrap gap-8">
-						<div className="text-center sm:text-left  lg:col-span-1">
-							<h4 className="ubuntu-medium text-white  text-sm mb-4">Connect</h4>
-							<div className="flex gap-3 justify-center sm:justify-start">
-								<a
-									href={personalInfo.social.github}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="p-2. text-white transition-colors"
-									aria-label="GitHub">
-									<GitHub fontSize="large" />
-								</a>
-								<a
-									href={personalInfo.social.linkedin}
-									target="_blank"
-									rel="noopener noreferrer"
-										className="p-2. text-white transition-colors"
-									aria-label="LinkedIn">
-									<LinkedIn fontSize="large" />
-								</a>
-								<a
-									href={`mailto:${personalInfo.email}`}
-										className="p-2. text-white transition-colors"
-									aria-label="Email">
-									<Email fontSize="large" />
-								</a>
-							</div>
-							
-						</div>
-						<div className="text-center sm:text-left  lg:col-span-1
-						
-						
-						">
-							<h4 className="ubuntu-medium text-white text-sm mb-4">
-								Quick Links
-							</h4>
-							<ul className="flex flex-col gap-2 md:flex-wrap">
-								{navLinks.map((link) => (
-									<li key={link.id}>
-										<a
-											href={`#${link.id}`}
-											className="ubuntu-regular text-sm hover:text-amber-400 transition-colors inline-block py-0.5">
-											{link.label}
-										</a>
-									</li>
-								))}
-							</ul>
-						</div>
-					</div>
-				</div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
+    );
+    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+    setForm({ name: "", email: "", message: "" });
+    setTimeout(() => setSubmitted(false), 4000);
+  };
 
-				<div className="border-t border-gray-800 dark:border-gray-800/80 pt-6 text-center px-2">
-					<p className="ubuntu-regular text-xs leading-5 sm:text-sm">
-						© {year} {personalInfo.name}. Built with React & Tailwind CSS.
-					</p>
-				</div>
-			</div>
-		</footer>
-	);
+  const contactLinks = [
+    {
+      icon: Email,
+      label: "Email",
+      value: personalInfo.email,
+      href: `mailto:${personalInfo.email}`,
+    },
+    {
+      icon: LinkedIn,
+      label: "LinkedIn",
+      value: "kumarankit1218",
+      href: personalInfo.social.linkedin,
+    },
+    {
+      icon: GitHub,
+      label: "GitHub",
+      value: "ankitkumar910",
+      href: personalInfo.social.github,
+    },
+  ];
+
+  const inputClasses =
+    "w-full border border-[var(--line)] bg-[var(--paper)] px-4 py-3 text-sm text-[var(--text)] placeholder:text-[var(--muted)]/70 focus:border-[var(--accent)] focus:outline-none";
+
+  return (
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8">
+      <div className="section-shell">
+        <div className="mb-12 text-center">
+          <p className="section-tag">Get in touch</p>
+          <h2 className="section-title">Contact</h2>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            {contactLinks.map(({ icon: Icon, label, value, href }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="group border border-[var(--line)] bg-[var(--paper)] p-5 transition-colors hover:border-[var(--accent)]"
+              >
+                <div className="mb-3 inline-flex h-10 w-10 items-center justify-center border border-[var(--line)] text-[var(--accent)]">
+                  <Icon fontSize="small" />
+                </div>
+                <div className="text-sm font-medium text-[var(--text)]">{label}</div>
+                <div className="mt-1 break-all text-xs text-[var(--muted)]">{value}</div>
+              </a>
+            ))}
+          </div>
+
+          <form onSubmit={handleSubmit} className="border border-[var(--line)] bg-[var(--paper)] p-6 sm:p-8">
+            <div className="space-y-5">
+              <div>
+                <label htmlFor="name" className="mb-2 block text-sm text-[var(--muted)]">
+                  Name
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={handleChange}
+                  placeholder="Your name"
+                  className={inputClasses}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="mb-2 block text-sm text-[var(--muted)]">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="your@email.com"
+                  className={inputClasses}
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="mb-2 block text-sm text-[var(--muted)]">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows={5}
+                  value={form.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your project..."
+                  className={`${inputClasses} resize-none`}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="inline-flex w-full items-center justify-center gap-2 bg-[var(--text)] px-5 py-3 text-sm font-medium text-[var(--bg)] transition-colors hover:opacity-90"
+              >
+                {submitted ? (
+                  <>
+                    <CheckCircle fontSize="small" />
+                    Opening email client...
+                  </>
+                ) : (
+                  <>
+                    <Send fontSize="small" />
+                    Send Message
+                  </>
+                )}
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default Footer;
+export default Contact;
