@@ -5,15 +5,16 @@ export const githubContributions = portfolioData.githubContributions;
 
 export const personalInfo = {
   name: "Ankit Kumar",
-  first_name :"Ankit",
-  title: "Software Developer",
-  tagline: "Building full-stack web apps with Java & React",
-  bio: "I'm a Software Developer with a strong interest in Java and full-stack development. I enjoy building web applications, solving Data Structures and Algorithms problems, and learning new technologies.",
+  first_name: "Ankit",
+  title: "Java Backend / Full-Stack Developer",
+  tagline: "Open to internships — Java, Spring Boot & React",
+  bio:
+    "I'm a 3rd-year CS student (5th semester) who builds backend systems in Java and Spring Boot, and full-stack apps with React. I'm currently looking for an internship, and spend most of my free time solving DSA problems in Java and working on projects I can actually explain in an interview.",
   longBio:
-    "I'm currently improving my skills in Java, Spring Boot, React, and DSA while building projects and preparing for Software Engineer roles. I love turning ideas into clean, working software and I'm always eager to learn something new.",
+    "Right now I'm working through Spring Security, Redis, and Kafka basics, and trying to build something real with each one instead of just following along with tutorials — Shortly (a URL shortener) came out of learning Redis, and Order Event Tracker came out of learning Kafka. Most of my backend work so far has gone into Identity Stack, a user-management API with JWT auth and role-based access, which I'm now adding test coverage to. I'm not restricting myself to backend-only roles — I'm open to full-stack or frontend internships too, as long as I can genuinely contribute from day one.",
   email: "ankitkr5447@gmail.com",
   phone: "6461120273",
-  location: "India",
+  location: "Kanpur, India",
   resumeUrl: "https://drive.google.com/file/d/1kRUFsbf8sbMgCyKgS2DP86KbRF8ZeFAv/view?usp=sharing",
   social: {
     linkedin: "https://linkedin.com/in/kumarankit1218",
@@ -35,10 +36,14 @@ export const navLinks = [
 export const navSectionIds = navLinks.map((link) => link.id);
 
 export const skills = [
+  { name: "Java", category: "Backend" },
+  { name: "Spring Boot", category: "Backend" },
+  { name: "Spring Security", category: "Backend" },
   { name: "React", category: "Frontend" },
   { name: "Tailwind CSS", category: "Frontend" },
-  { name: "Spring Boot", category: "Backend" },
   { name: "MySQL", category: "Database" },
+  { name: "Redis", category: "Database" },
+  { name: "Docker", category: "Tools" },
   { name: "Maven", category: "Tools" },
 ];
 
@@ -49,15 +54,23 @@ export const skillCategories = [
   },
   {
     title: "Frameworks & Libraries",
-    items: ["Spring Boot", "React", "Tailwind CSS", "Hibernate"],
+    items: ["Spring Boot", "Spring Security", "Hibernate / JPA", "React", "Tailwind CSS"],
   },
   {
     title: "Tools & Platforms",
-    items: ["Git", "Maven", "MySQL", "VS Code", "IntelliJ IDEA"],
+    items: ["Git", "Docker", "Redis", "Maven", "MySQL", "VS Code", "IntelliJ IDEA"],
   },
   {
     title: "Concepts",
-    items: ["REST APIs", "OOP", "Data Structures", "Algorithms", "System Design Basics"],
+    items: [
+      "REST APIs",
+      "JWT Authentication",
+      "Role-Based Access Control",
+      "OOP",
+      "Data Structures",
+      "Algorithms",
+      "System Design Basics",
+    ],
   },
 ];
 
@@ -66,7 +79,7 @@ export const projects = [
     id: 1,
     title: "Identity Stack",
     description:
-      "A user-management REST API with JWT authentication, Spring Security, and role-based access control (USER/ADMIN). Includes CRUD, validation, pagination, search, and Swagger/OpenAPI docs. Dockerized and deployed.",
+      "A user-management REST API with JWT authentication, Spring Security, and role-based access control (USER/ADMIN). Includes CRUD, validation, pagination, search, and Swagger/OpenAPI docs. Dockerized and deployed, and currently getting JUnit/Mockito test coverage across the service, controller, and repository layers.",
     tags: ["Java", "Spring Boot", "Spring Security", "JWT", "MySQL", "Docker"],
     github: "https://github.com/ankitkumar910/identity-stack",
     live: "https://identitystack.onrender.com/docs",
@@ -76,7 +89,7 @@ export const projects = [
     id: 2,
     title: "Shortly",
     description:
-      "A URL shortener and link management platform with Redis-backed rate limiting on the shorten endpoint. Built to learn Redis in a real, working project.",
+      "A URL shortener with Redis-backed rate limiting on the shorten endpoint. Built mainly to actually learn Redis instead of just reading about it — shortening, redirects, and TTL expiry.",
     tags: ["Java", "Spring Boot", "Redis", "React", "MySQL"],
     github: "https://github.com/ankitkumar910/Shortly",
     live: "https://shortly100.vercel.app",
@@ -86,7 +99,7 @@ export const projects = [
     id: 3,
     title: "Order Event Tracker",
     description:
-      "An event-driven order processing service exploring asynchronous communication with Kafka. Tracks order lifecycle events (placed to delivered) through independent consumer groups, with a dead-letter topic for failed messages.",
+      "An event-driven order processing service built to learn Kafka. Tracks the order lifecycle (placed through delivered) using order ID as the message key, with two independent consumer groups and a dead-letter topic for failed messages.",
     tags: ["Java", "Spring Boot", "Apache Kafka", "MySQL"],
     github: "https://github.com/ankitkumar910/order-event-tracker",
     live: null,
@@ -94,6 +107,16 @@ export const projects = [
   },
   {
     id: 4,
+    title: "Pennat",
+    description:
+      "A full-stack blogging platform with Google OAuth login, full-text search, and a follow system. It's a fairly basic blogging app at its core, but it's fully deployed and something I built end-to-end on both the frontend and backend.",
+    tags: ["React", "Supabase", "Tailwind CSS"],
+    github: null,
+    live: "https://pennat.vercel.app/home",
+    featured: false,
+  },
+  {
+    id: 5,
     title: "Portfolio Website",
     description:
       "This portfolio site — a single-page React application with smooth scrolling, responsive layout, and a warm, minimal design.",
@@ -108,16 +131,17 @@ export const experience = [
   {
     type: "education",
     title: "Bachelor's in Computer Science",
-    organization: "Dr. Ambedkar Institute of Technology for Divyangjan,Kanpur (UP) ",
+    organization: "Dr. Ambedkar Institute of Technology for Divyangjan, Kanpur (UP)",
     period: "2024 — Present",
     description:
-      "Focused on software engineering, data structures, algorithms, and database management systems.",
+      "Currently in 5th semester. Focused on Java backend development (Spring Boot, Spring Security, JPA/Hibernate), data structures and algorithms, and database management systems, alongside hands-on projects outside the regular coursework.",
   },
 ];
 
 export const stats = [
-  { label: "Projects Built", value: "4" },
-  { label: "Technologies", value: "13" },
+  { label: "Projects Built", value: "5" },
+  { label: "DSA Problems Solved", value: "726+" },
+  { label: "Technologies", value: "15+" },
   { label: "Git Commits", value: "76+" },
   { label: "GitHub Repos", value: "39+" },
 ];

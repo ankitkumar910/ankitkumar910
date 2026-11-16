@@ -83,19 +83,12 @@ function Navbar() {
         aria-label="Main navigation"
         className={`fixed left-0 right-0 top-0 z-50 hidden transition-all duration-200 sm:block ${
           scrolled
-            ? "border-b border-[var(--line)] bg-[var(--bg)]/95"
+            ? "bg-[var(--bg)]/95"
             : "bg-transparent"
         }`}
       >
-        <div className="section-shell flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
-          <a
-            href="#home"
-            className="text-lg font-semibold tracking-[-0.04em] text-[var(--text)]"
-          >
-            {personalInfo.name}
-            <span className="text-[var(--accent)]">.</span>
-          </a>
-          <ul className="flex items-center gap-2">
+        <div className="section-shell relative flex h-20 items-center justify-end px-4 sm:px-6 lg:px-8">
+          <ul className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -123,7 +116,7 @@ function Navbar() {
         <button
           type="button"
           onClick={openMenu}
-          className="fixed right-4 top-4 z-[70] inline-flex h-10 w-10 items-center justify-center border border-[var(--line)] bg-[var(--bg)] text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] sm:hidden"
+          className="fixed right-4 top-4 z-[70] inline-flex h-10 w-10 items-center justify-center rounded-[6px] border border-[var(--line)] bg-[var(--bg)] text-[var(--text)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] sm:hidden"
           aria-label="Open navigation"
           aria-expanded={false}
           aria-controls="mobile-navigation"
@@ -157,7 +150,7 @@ function Navbar() {
               menuOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
-            <div className="mb-8 flex min-h-11 items-center justify-between pr-12">
+            <div className="mb-8 flex min-h-11 items-center justify-between">
               <a
                 href="#home"
                 onClick={closeMenu}

@@ -5,15 +5,18 @@ import { personalInfo } from "../data/portfolio";
 function Introduction() {
   return (
     <div className="bg-[var(--bg)]">
-      <section id="home" className="section-shell px-4 pb-20 pt-14 sm:px-6 sm:pt-28 lg:px-8">
+      <section id="home" className="section-shell px-4 pb-20 pt-4 sm:px-6 sm:pt-28 lg:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="max-w-xl">
-            <p className="section-tag">{personalInfo.title}</p>
+            <p className="section-tag hero-section-tag">{personalInfo.title}</p>
             <h1 className="text-4xl font-semibold leading-[0.96] tracking-[-0.06em] text-[var(--text)] sm:text-5xl lg:text-7xl">
               Hi, I&apos;m <span className="text-[var(--accent)]">{personalInfo.first_name}</span>
             </h1>
-            <p className="mt-5 text-xl leading-relaxed text-[var(--muted)]">{personalInfo.tagline}</p>
             <p className="mt-6 max-w-lg text-[1.0625rem] leading-8 text-[var(--muted)]">{personalInfo.bio}</p>
+            <p className="intro-tagline mt-5 text-base leading-relaxed">
+              <span aria-hidden="true" className="mr-2">💻</span>
+              {personalInfo.tagline}
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href={personalInfo.resumeUrl} target="_blank" rel="noopener noreferrer" className="soft-button"><Description fontSize="small" />See Resume</a>
               <a href="#projects" className="ghost-button">View Projects</a>

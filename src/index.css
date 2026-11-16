@@ -333,6 +333,18 @@ section {
   text-transform: uppercase;
 }
 
+.hero-section-tag {
+  font-weight: 400;
+}
+
+.intro-tagline {
+  color: #15803d;
+}
+
+:root.dark .intro-tagline {
+  color: #4ade80;
+}
+
 .section-title {
   margin: 0;
   color: var(--text);
