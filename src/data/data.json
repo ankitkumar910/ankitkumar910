@@ -1,0 +1,31 @@
+{
+  "codingProfiles": [
+    {
+      "id": "leetcode",
+      "name": "LeetCode",
+      "handle": "ankit-kumarr",
+      "url": "https://leetcode.com/u/ankit-kumarr/",
+      "solved": 286,
+      "statsApiUrl": "https://alfa-leetcode-api.onrender.com/ankit-kumarr/solved",
+      "statsUpdatedAt": "2026-11-16"
+    },
+    {
+      "id": "geeksforgeeks",
+      "name": "GeeksforGeeks",
+      "handle": "ankitkumar1212",
+      "url": "https://www.geeksforgeeks.org/profile/ankitkumar1212?tab=activity"
+    },
+    {
+      "id": "takeuforward",
+      "name": "takeUforward",
+      "handle": "ankitkumar34",
+      "url": "https://takeuforward.org/profile/ankitkumar34"
+    }
+  ],
+  "githubContributions": {
+    "username": "ankitkumar910",
+    "url": "https://github.com/ankitkumar910",
+    "apiUrl": "https://github-contributions-api.jogruber.de/v4/ankitkumar910?y=last",
+    "contributionsLastYear": 1084
+  }
+}

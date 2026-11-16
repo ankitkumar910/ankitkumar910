@@ -1,11 +1,11 @@
-import reactUrl from "../assets/react.svg";
-import tailUrl from "../assets/tailwind.svg";
-import springBootUrl from "../assets/springboot.svg";
-import mySqlUrl from "../assets/mysql.png";
-import mavenUrl from "../assets/maven2.svg";
+import portfolioData from "./data.json";
+
+export const codingProfiles = portfolioData.codingProfiles;
+export const githubContributions = portfolioData.githubContributions;
 
 export const personalInfo = {
   name: "Ankit Kumar",
+  first_name :"Ankit",
   title: "Software Developer",
   tagline: "Building full-stack web apps with Java & React",
   bio: "I'm a Software Developer with a strong interest in Java and full-stack development. I enjoy building web applications, solving Data Structures and Algorithms problems, and learning new technologies.",
@@ -26,17 +26,20 @@ export const navLinks = [
   { id: "home", label: "Home" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
+  { id: "coding", label: "Coding" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
   { id: "contact", label: "Contact" },
 ];
 
+export const navSectionIds = navLinks.map((link) => link.id);
+
 export const skills = [
-  { name: "React", icon: reactUrl, category: "Frontend" },
-  { name: "Tailwind CSS", icon: tailUrl, category: "Frontend" },
-  { name: "Spring Boot", icon: springBootUrl, category: "Backend" },
-  { name: "MySQL", icon: mySqlUrl, category: "Database" },
-  { name: "Maven", icon: mavenUrl, category: "Tools" },
+  { name: "React", category: "Frontend" },
+  { name: "Tailwind CSS", category: "Frontend" },
+  { name: "Spring Boot", category: "Backend" },
+  { name: "MySQL", category: "Database" },
+  { name: "Maven", category: "Tools" },
 ];
 
 export const skillCategories = [
